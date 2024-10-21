@@ -52,7 +52,7 @@ public class Server {
                 dataInputStream = new DataInputStream(socket.getInputStream());
                 dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
-                while (!typetext.getText().equals("exit")) {
+                while (!typetext.getText().equals("bye")) {
                     message = dataInputStream.readUTF();
                     textArea.appendText("\nClient:" + message);
                 }

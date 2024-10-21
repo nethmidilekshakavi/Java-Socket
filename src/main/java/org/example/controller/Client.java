@@ -52,11 +52,16 @@ public class Client {
         new  Thread(()-> {
             try {
                 socket = new Socket("localhost", 3000);
+                //receiving msg from the server
                 dataInputStream = new DataInputStream(socket.getInputStream());
-                dataOutputStream = new DataOutputStream(socket.getOutputStream());
-                dataOutputStream.writeUTF(message);
-                while (!textArea.getText().equals("exit")) {
+                //sending the msg to the Server
+               dataOutputStream = new DataOutputStream(socket.getOutputStream());
+
+
+
+                while (!textArea.getText().equals("bye")) {
                     message = dataInputStream.readUTF();
+                    //set the msg
                     textArea.appendText("\nServer:" + message);
                 }
 
